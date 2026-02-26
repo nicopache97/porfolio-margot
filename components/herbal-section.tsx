@@ -111,10 +111,6 @@ export function HerbalSection() {
                 active={hoveredIndex === i}
               >
                 <div className="flex flex-col items-center">
-                  <FileteHierbas
-                    width={80}
-                    className={`mb-2 transition-all duration-500 ${hoveredIndex === i ? "opacity-100 scale-110" : "opacity-40 scale-100"}`}
-                  />
                   <h4 className="mb-3 font-serif text-lg font-bold text-primary md:text-xl">
                     {herb.name}
                   </h4>
