@@ -1,12 +1,14 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 const variants = [
-  { top: "BUENOS", bottom: "ALFAJORES", handle: "BUENOSMATES87" },
-  { top: "BUENOS", bottom: "FILTROS", handle: "BUENOSMATES87" },
-  { top: "BUENOS", bottom: "LLAVEROS", handle: "BUENOSMATES87" },
-  { top: "BUENOS", bottom: "BOCADOS", handle: "BUENOSMATES87" },
+  { name: "Alfajores", src: "/images/marca-buenos-alfajores.png" },
+  { name: "Filtros", src: "/images/marca-buenos-filtros.png" },
+  { name: "Llaveros", src: "/images/marca-buenos-llaveros.png" },
+  { name: "Bocados", src: "/images/marca-buenos-bocados.png" },
+  { name: "Chipas", src: "/images/marca-buenos-chipa.png" },
 ]
 
 export function LogoVariants() {
@@ -25,34 +27,45 @@ export function LogoVariants() {
   }, [])
 
   return (
-    <section className="px-6 py-16">
+    <section className="px-6 py-20 bg-background/50">
       <div
         ref={ref}
-        className={`mx-auto max-w-6xl transition-all duration-1000 ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
+        className={`mx-auto max-w-6xl transition-all duration-1000 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
       >
-        <p className="mb-8 text-center text-xs font-medium tracking-[0.4em] uppercase text-muted-foreground">
-          Variantes del logo
+        <p className="mb-12 text-center text-xs font-medium tracking-[0.5em] uppercase text-primary/80">
+          Ecosistema de la Marca
         </p>
 
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-10 md:gap-16">
           {variants.map((v, i) => (
             <div
               key={i}
-              className="group flex flex-col items-center gap-3 rounded-lg border border-border bg-card p-6 transition-all duration-500 hover:border-primary/40 hover:bg-secondary"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`group relative flex flex-col items-center gap-4 transition-all duration-700 ${visible ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-12 scale-75"
+                }`}
+              style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className="flex flex-col items-center">
-                <span className="font-serif text-lg font-bold tracking-wide text-foreground md:text-xl">
-                  {v.top}
-                </span>
-                <span className="text-xs font-medium tracking-widest text-primary">
-                  {`-${v.bottom}-`}
-                </span>
+              {/* The Spotlight Circle */}
+              <div className="relative flex h-36 w-36 items-center justify-center rounded-full bg-transparent transition-all duration-500 
+                hover:scale-110 hover:shadow-[inset_0_0_40px_rgba(0,0,0,0.6)] 
+                before:absolute before:inset-0 before:rounded-full before:bg-[radial-gradient(circle,rgba(255,197,66,0.1)_0%,transparent_70%)] 
+                before:opacity-0 before:transition-opacity before:duration-500 group-hover:before:opacity-100
+                md:h-44 md:w-44 lg:h-48 lg:w-48">
+
+                {/* Logo Image */}
+                <div className="relative h-24 w-24 transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2 md:h-32 md:w-32 lg:h-36 lg:w-36">
+                  <Image
+                    src={v.src}
+                    alt={v.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
-              <span className="text-[10px] tracking-wider text-muted-foreground">
-                {v.handle}
+
+              {/* Subtitle */}
+              <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1">
+                {v.name}
               </span>
             </div>
           ))}

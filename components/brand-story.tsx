@@ -88,8 +88,8 @@ export function BrandStory() {
             <div className="flex gap-3">
               <div className="h-10 w-10 rounded-full bg-[#1a1a1a] ring-1 ring-foreground/20" />
               <div className="h-10 w-10 rounded-full bg-[#f5f0e8] ring-1 ring-foreground/20" />
-              <div className="h-10 w-10 rounded-full bg-primary ring-1 ring-foreground/20" />
-              <div className="h-10 w-10 rounded-full bg-accent ring-1 ring-foreground/20" />
+              {/* <div className="h-10 w-10 rounded-full bg-primary ring-1 ring-foreground/20" /> */}
+              {/* <div className="h-10 w-10 rounded-full bg-accent ring-1 ring-foreground/20" /> */}
             </div>
           </div>
         </div>
