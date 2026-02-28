@@ -1,75 +1,47 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { MateShape } from "./mate-shape"
 import { FileteHierbas } from "./filete-hierbas"
 
 const herbs = [
   {
     name: "Peperina",
-    benefits: [
-      "Analgésico natural",
-      "Alivia dolores de cabeza",
-      "Refuerza el sistema inmunológico",
-      "Alivia la ansiedad",
-    ],
-    color: "#FFEF9C"
+    color: "#FFEF9C",
+    etiquetaSrc: "/images/etiquetas/peperina.png",
   },
   {
     name: "Manzanilla",
-    benefits: [
-      "Propiedades antiinflamatorias",
-      "Propiedades digestivas",
-      "Ayuda a conciliar el sueño",
-      "Alivia el estrés",
-    ],
-    color: "#FFD860"
+    color: "#FFD860",
+    etiquetaSrc: "/images/etiquetas/manzanilla.png",
   },
   {
     name: "Cedrón",
-    benefits: [
-      "Mejora los ciclos del sueño",
-      "Alivia dolores estomacales",
-      "Propiedades antioxidantes",
-      "Función antiinflamatoria",
-    ],
-    color: "#BBE2F5"
+    color: "#BBE2F5",
+    etiquetaSrc: "/images/etiquetas/cedron.png",
   },
   {
     name: "Burrito",
-    benefits: [
-      "Propiedades digestivas y sedantes",
-      "Propiedades ansiolíticas",
-      "Elimina pesadez estomacal",
-      "Efecto antidepresivo",
-    ],
-    color: "#FDE8B0"
+    color: "#FDE8B0",
+    etiquetaSrc: "/images/etiquetas/burrito.png",
   },
   {
     name: "Tilo",
-    benefits: [
-      "Relajante e inductora del sueño",
-      "Alivia la presión arterial",
-      "Calma la ansiedad",
-      "Efectos diuréticos",
-    ],
-    color: "#AC86A6"
+    color: "#AC86A6",
+    etiquetaSrc: "/images/etiquetas/tilo.png",
   },
   {
     name: "Cola de Caballo",
-    benefits: [
-      "Agente diurético y depurativo",
-      "Regenerador celular",
-      "Elimina toxinas del hígado",
-      "Alivia la fatiga",
-    ],
-    color: "#E17C3E"
+    color: "#E17C3E",
+    etiquetaSrc: "/images/etiquetas/cola-de-caballo.png",
   },
 ]
 
 export function HerbalSection() {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   useEffect(() => {
@@ -103,37 +75,48 @@ export function HerbalSection() {
           <FileteHierbas width={350} className="mt-2" />
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-2 sm:gap-x-6 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 lg:grid-cols-3">
           {herbs.map((herb, i) => (
             <div
               key={herb.name}
-              className="group relative transition-all duration-500"
+              className="group relative transition-all duration-500 [perspective:1000px] cursor-pointer"
               style={{ transitionDelay: `${i * 80}ms` }}
+              onClick={() => setSelectedIndex(selectedIndex === i ? null : i)}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <MateShape
-                className="aspect-[3/4] w-full cursor-default"
-                active={hoveredIndex === i}
-                color={herb.color}
+              <div
+                className={`relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d] ${selectedIndex === i ? "[transform:rotateY(180deg)]" : ""
+                  }`}
               >
-                <div className="flex flex-col items-center">
-                  <h4 className="mb-3 font-serif text-lg font-bold text-primary md:text-xl">
-                    {herb.name}
-                  </h4>
+                {/* Front */}
+                <div className="absolute inset-0 [backface-visibility:hidden]">
+                  <MateShape
+                    className="h-full w-full"
+                    active={selectedIndex === i || hoveredIndex === i}
+                    color={herb.color}
+                  >
+                    <div className="flex flex-col items-center">
+                      <h4 className="mb-1 font-serif text-lg font-bold text-primary md:text-xl">
+                        {herb.name}
+                      </h4>
+                      <span className="text-[10px] tracking-wider text-muted-foreground uppercase mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        VER DETALLES
+                      </span>
+                    </div>
+                  </MateShape>
                 </div>
-                <ul className="flex flex-col gap-1.5">
-                  {herb.benefits.map((benefit, j) => (
-                    <li
-                      key={j}
-                      className="flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground md:text-xs"
-                    >
-                      <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </MateShape>
+
+                {/* Back */}
+                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl overflow-hidden">
+                  <Image
+                    src={herb.etiquetaSrc}
+                    alt={`${herb.name} detalle`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
             </div>
           ))}
         </div>

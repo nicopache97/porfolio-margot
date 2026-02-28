@@ -78,9 +78,9 @@ const products = [
   },
   {
     image: "/images/bolsa-buenos-mates.png",
-    alt: "Bolsa de mate artesanal Buenos Mates",
-    title: "Bolsa de mate artesanal",
-    subtitle: "Bolsa de mate artesanal Buenos Mates",
+    alt: "Bolsa de Buenos Mates",
+    title: "Bolsa",
+    subtitle: "Bolsa contenedora de productos",
   },
   {
     image: "/images/buenos-yuyos.png",
