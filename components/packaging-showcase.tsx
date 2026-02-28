@@ -22,14 +22,13 @@ export function PackagingShowcase() {
     <section id="packaging" className="px-6 py-16">
       <div
         ref={ref}
-        className={`mx-auto max-w-6xl transition-all duration-1000 ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
+        className={`mx-auto max-w-6xl transition-all duration-1000 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
       >
         {/* Full Width Feature */}
         <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-lg md:aspect-[21/9]">
           <Image
-            src="/images/bocados.jpg"
+            src="/images/bocados.jpeg"
             alt="Buenos Bocados - Producto artesanal de frutos secos"
             fill
             className="object-cover"
