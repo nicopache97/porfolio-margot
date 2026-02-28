@@ -23,9 +23,7 @@ export function BrandStory() {
     <section id="marca" className="px-6 py-12">
       <div
         ref={ref}
-        className={`mx-auto grid max-w-6xl gap-12 transition-all duration-1000 md:grid-cols-2 md:gap-16 ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
+        className={`mx-auto grid max-w-6xl gap-12 transition-all duration-1000 md:grid-cols-2 md:gap-16 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
       >
         {/* Image Side */}
         <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
@@ -45,11 +43,15 @@ export function BrandStory() {
             <p className="text-xs font-medium tracking-[0.4em] uppercase text-primary">
               La Marca
             </p>
-            <h3 className="font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
-              BUENOS
-              <br />
-              <span className="text-primary">MATES</span>
-            </h3>
+            <div className="relative h-32 w-full max-w-[450px] md:h-40 lg:h-48">
+              <Image
+                src="/images/marca-buenos-mates.png"
+                alt="Buenos Mates Logo"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            </div>
           </div>
 
           <FileteRule width={120} />
