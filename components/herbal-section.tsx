@@ -13,6 +13,7 @@ const herbs = [
       "Refuerza el sistema inmunológico",
       "Alivia la ansiedad",
     ],
+    color: "#FFEF9C"
   },
   {
     name: "Manzanilla",
@@ -22,6 +23,7 @@ const herbs = [
       "Ayuda a conciliar el sueño",
       "Alivia el estrés",
     ],
+    color: "#FFD860"
   },
   {
     name: "Cedrón",
@@ -31,6 +33,7 @@ const herbs = [
       "Propiedades antioxidantes",
       "Función antiinflamatoria",
     ],
+    color: "#BBE2F5"
   },
   {
     name: "Burrito",
@@ -40,6 +43,7 @@ const herbs = [
       "Elimina pesadez estomacal",
       "Efecto antidepresivo",
     ],
+    color: "#FDE8B0"
   },
   {
     name: "Tilo",
@@ -49,6 +53,7 @@ const herbs = [
       "Calma la ansiedad",
       "Efectos diuréticos",
     ],
+    color: "#AC86A6"
   },
   {
     name: "Cola de Caballo",
@@ -58,6 +63,7 @@ const herbs = [
       "Elimina toxinas del hígado",
       "Alivia la fatiga",
     ],
+    color: "#E17C3E"
   },
 ]
 
@@ -94,7 +100,7 @@ export function HerbalSection() {
           <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
             {"Calmate y tomate unos Buenos Mates. Cada hierba seleccionada con beneficios únicos para tu bienestar."}
           </p>
-          <FileteHierbas width={180} className="mt-2" />
+          <FileteHierbas width={350} className="mt-2" />
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-2 sm:gap-x-6 lg:grid-cols-3">
@@ -109,6 +115,7 @@ export function HerbalSection() {
               <MateShape
                 className="aspect-[3/4] w-full cursor-default"
                 active={hoveredIndex === i}
+                color={herb.color}
               >
                 <div className="flex flex-col items-center">
                   <h4 className="mb-3 font-serif text-lg font-bold text-primary md:text-xl">
