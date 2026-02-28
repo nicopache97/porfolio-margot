@@ -29,9 +29,7 @@ function ProductCard({ image, alt, title, subtitle, index }: ProductCardProps) {
   return (
     <div
       ref={ref}
-      className={`group relative overflow-hidden rounded-lg transition-all duration-700 ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-      }`}
+      className={`group relative overflow-hidden rounded-lg transition-all duration-700 ${visible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       <div className="relative aspect-[3/4] overflow-hidden">
@@ -61,17 +59,35 @@ const products = [
     subtitle: "Branding & Packaging",
   },
   {
-    image: "/images/alfajor.jpg",
+    image: "/images/buenos-alfajores.png",
     alt: "Alfajor artesanal Buenos Alfajores",
     title: "Buenos Alfajores",
     subtitle: "Etiquetas & Packaging",
   },
   {
-    image: "/images/llaveros.jpg",
+    image: "/images/llaveros.png",
     alt: "Llaveros artesanales Buenos Llaveros",
     title: "Buenos Llaveros",
     subtitle: "Producto & Branding",
   },
+  {
+    image: "/images/buenos-bocados.png",
+    alt: "Buenos Bocados - Producto artesanal de frutos secos",
+    title: "Buenos Bocados",
+    subtitle: "Producto artesanal de frutos secos. Elaborado con ingredientes naturales seleccionados.",
+  },
+  {
+    image: "/images/bolsa-buenos-mates.png",
+    alt: "Bolsa de mate artesanal Buenos Mates",
+    title: "Bolsa de mate artesanal",
+    subtitle: "Bolsa de mate artesanal Buenos Mates",
+  },
+  {
+    image: "/images/buenos-yuyos.png",
+    alt: "Buenos Yuyos en el mate",
+    title: "Buenos Yuyos",
+    subtitle: "Producto aditivo digestivo para tomar Buenos Mates",
+  }
 ]
 
 export function ProductGallery() {

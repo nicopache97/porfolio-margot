@@ -53,7 +53,7 @@ export function PackagingShowcase() {
           {/* Hierbas */}
           <div className="group relative aspect-square overflow-hidden rounded-lg">
             <Image
-              src="/images/hierbas.jpg"
+              src="/images/hierbas.png"
               alt="Hierbas para el mate - Coleccion Buenos Mates"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -71,7 +71,7 @@ export function PackagingShowcase() {
           {/* Mate Lifestyle */}
           <div className="group relative aspect-square overflow-hidden rounded-lg">
             <Image
-              src="/images/mate-pouring.jpg"
+              src="/images/mate-pouring.png"
               alt="Preparando mate - Lifestyle Buenos Mates"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
