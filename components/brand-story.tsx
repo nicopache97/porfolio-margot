@@ -45,7 +45,7 @@ export function BrandStory() {
             </p>
             <div className="relative h-32 w-full max-w-[450px] md:h-40 lg:h-48">
               <Image
-                src="/images/marca-buenos-mates.png"
+                src="/images/marcas/buenos-mates.png"
                 alt="Buenos Mates Logo"
                 fill
                 className="object-contain object-left"
