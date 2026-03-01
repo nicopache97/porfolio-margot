@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Marca", href: "#marca" },
   { label: "Branding", href: "#branding" },
   { label: "Packaging", href: "#packaging" },
+  { label: "Sobre mí", href: "#sobre-mi" },
   { label: "Contacto", href: "#contacto" },
 ]
 

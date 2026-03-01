@@ -7,6 +7,7 @@ import { ProductGallery } from "@/components/product-gallery"
 import { PackagingShowcase } from "@/components/packaging-showcase"
 import { HerbalSection } from "@/components/herbal-section"
 import { EtiquetasSection } from "@/components/etiquetas-section"
+import { AboutMe } from "@/components/about-me"
 import { Footer } from "@/components/footer"
 
 export default function PortfolioPage() {
@@ -31,6 +32,10 @@ export default function PortfolioPage() {
       <SectionDivider title="PACKAGING" subtitle={"Selecci\u00f3n de trabajos"} />
       <PackagingShowcase />
       <HerbalSection />
+
+      {/* Sobre mí Section */}
+      <SectionDivider title="SOBRE MÍ" subtitle={"La diseñadora"} />
+      <AboutMe />
 
       {/* Footer / Contact */}
       <Footer />

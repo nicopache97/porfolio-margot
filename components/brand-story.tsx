@@ -28,8 +28,8 @@ export function BrandStory() {
         {/* Image Side */}
         <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
           <Image
-            src="/images/mate-hero.jpg"
-            alt="Mate tradicional argentino con bombilla"
+            src="/images/mate-pouring.png"
+            alt="Mate con bombilla, tradicional argentino"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
