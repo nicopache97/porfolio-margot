@@ -71,16 +71,16 @@ export function PackagingShowcase() {
           {/* Mate Lifestyle */}
           <div className="group relative aspect-square overflow-hidden rounded-lg">
             <Image
-              src="/images/mate-pouring.png"
-              alt="Preparando mate - Lifestyle Buenos Mates"
+              src="/images/packaging-alfajores.png"
+              alt="Alfajores para acompañar | Lifestyle Buenos Mates"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             <div className="absolute bottom-0 left-0 flex flex-col gap-2 p-6">
-              <h4 className="font-serif text-2xl font-bold text-foreground">Nos sobran motivos</h4>
-              <p className="text-sm text-primary">para matear</p>
+              <h4 className="font-serif text-2xl font-bold text-foreground">Alfajores</h4>
+              <p className="text-sm text-primary">para tomar unos Buenos Mates</p>
             </div>
           </div>
         </div>
