@@ -1,36 +1,42 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { FileteRule } from "./filete-porteno"
 
+// shape drives both the image container dimensions and card layout
 const labels = [
   {
     name: "Buenos Alfajores",
-    color: "bg-accent",
-    textColor: "text-accent-foreground",
     description: "Alfajor de algarroba relleno a dulce de leche",
-    shape: "rounded-full",
+    image: "/images/etiquetas/buenos-alfajores.png",
+    // circular sticker → square container with rounded-full clip
+    imgClass: "relative h-80 w-80",
+    imgStyle: "object-contain rounded-full",
+
   },
   {
     name: "Buenos Llaveros",
-    color: "bg-card",
-    textColor: "text-card-foreground",
     description: "Llaveros artesanales de mate",
-    shape: "rounded-lg",
+    image: "/images/etiquetas/buenos-llaveros.png",
+    // tall rectangular label → portrait container
+    imgClass: "relative h-100 w-100",
+    imgStyle: "object-contain",
   },
   {
     name: "Buenos Filtros",
-    color: "bg-card",
-    textColor: "text-card-foreground",
     description: "Filtros premium para bombilla",
-    shape: "rounded-lg",
+    image: "/images/etiquetas/buenos-filtros.png",
+    // tall rectangular label → portrait container
+    imgClass: "relative h-100 w-100",
+    imgStyle: "object-contain",
   },
   {
     name: "Buenos Bocados",
-    color: "bg-primary/20",
-    textColor: "text-foreground",
     description: "Producto artesanal - Frutos secos",
-    shape: "rounded-lg",
+    image: "/images/etiquetas/buenos-bocados.png",
+    imgClass: "relative h-100 w-150",
+    imgStyle: "object-contain",
   },
 ]
 
@@ -53,9 +59,8 @@ export function EtiquetasSection() {
     <section className="px-6 py-16">
       <div
         ref={ref}
-        className={`mx-auto max-w-6xl transition-all duration-1000 ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
+        className={`mx-auto max-w-6xl transition-all duration-1000 ${visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
       >
         <div className="mb-12 flex flex-col items-center gap-4 text-center">
           <p className="text-xs font-medium tracking-[0.4em] uppercase text-primary">
@@ -67,28 +72,28 @@ export function EtiquetasSection() {
           <FileteRule width={160} />
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Top row: 2 individual labels */}
+        <div className="grid gap-6 sm:grid-cols-2">
           {labels.map((label, i) => (
             <div
               key={label.name}
-              className={`group flex flex-col items-center gap-4 border border-border ${label.shape} p-8 transition-all duration-500 hover:border-primary/40`}
+              className="group flex flex-col items-center gap-5 rounded-lg border border-border p-8 transition-all duration-500 hover:border-primary/40"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div
-                className={`flex h-24 w-24 items-center justify-center ${label.shape} ${label.color} transition-transform duration-500 group-hover:scale-110`}
+                className={`${label.imgClass} transition-transform duration-500 group-hover:scale-110`}
               >
-                <span className={`text-center text-[10px] font-bold tracking-wider uppercase ${label.textColor}`}>
-                  {label.name}
-                </span>
+                <Image
+                  src={label.image}
+                  alt={label.name}
+                  fill
+                  className={label.imgStyle}
+                />
               </div>
               <div className="flex flex-col items-center gap-1 text-center">
                 <h4 className="font-serif text-base font-bold text-foreground">
                   {label.name}
                 </h4>
-                <p className="text-xs text-muted-foreground">{label.description}</p>
-                <span className="mt-1 text-[10px] tracking-wider text-muted-foreground">
-                  BUENOSMATES87
-                </span>
               </div>
             </div>
           ))}

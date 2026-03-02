@@ -9,32 +9,32 @@ const herbs = [
   {
     name: "Peperina",
     color: "#FFEF9C",
-    etiquetaSrc: "/images/etiquetas/peperina.png",
+    etiquetaSrc: "/images/hierbas/peperina.png",
   },
   {
     name: "Manzanilla",
     color: "#FFD860",
-    etiquetaSrc: "/images/etiquetas/manzanilla.png",
+    etiquetaSrc: "/images/hierbas/manzanilla.png",
   },
   {
     name: "Cedrón",
     color: "#BBE2F5",
-    etiquetaSrc: "/images/etiquetas/cedron.png",
+    etiquetaSrc: "/images/hierbas/cedron.png",
   },
   {
     name: "Burrito",
     color: "#FDE8B0",
-    etiquetaSrc: "/images/etiquetas/burrito.png",
+    etiquetaSrc: "/images/hierbas/burrito.png",
   },
   {
     name: "Tilo",
     color: "#AC86A6",
-    etiquetaSrc: "/images/etiquetas/tilo.png",
+    etiquetaSrc: "/images/hierbas/tilo.png",
   },
   {
     name: "Cola de Caballo",
     color: "#E17C3E",
-    etiquetaSrc: "/images/etiquetas/cola-de-caballo.png",
+    etiquetaSrc: "/images/hierbas/cola-de-caballo.png",
   },
 ]
 
