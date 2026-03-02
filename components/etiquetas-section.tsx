@@ -11,7 +11,6 @@ const labels = [
     description: "Alfajor de algarroba relleno a dulce de leche",
     image: "/images/etiquetas/buenos-alfajores.png",
     // circular sticker → square responsive container
-    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain rounded-full",
   },
   {
@@ -19,24 +18,22 @@ const labels = [
     description: "Llaveros artesanales de mate",
     image: "/images/etiquetas/buenos-llaveros.png",
     // tall rectangular label → square aspect keeps it contained
-    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain",
   },
   {
     name: "Buenos Filtros",
     description: "Filtros premium para bombilla",
     image: "/images/etiquetas/buenos-filtros.png",
-    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain",
   },
   {
     name: "Buenos Bocados",
     description: "Producto artesanal - Frutos secos",
     image: "/images/etiquetas/buenos-bocados.png",
-    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain",
   },
 ]
+const imgClass = "relative w-full max-w-[18rem] mx-auto aspect-square"
 
 export function EtiquetasSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -79,7 +76,7 @@ export function EtiquetasSection() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div
-                className={`${label.imgClass} transition-transform duration-500 group-hover:scale-110`}
+                className={`${imgClass} transition-transform duration-500 group-hover:scale-110`}
               >
                 <Image
                   src={label.image}
