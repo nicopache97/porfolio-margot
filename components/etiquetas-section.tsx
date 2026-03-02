@@ -10,32 +10,30 @@ const labels = [
     name: "Buenos Alfajores",
     description: "Alfajor de algarroba relleno a dulce de leche",
     image: "/images/etiquetas/buenos-alfajores.png",
-    // circular sticker → square container with rounded-full clip
-    imgClass: "relative h-80 w-80",
+    // circular sticker → square responsive container
+    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain rounded-full",
-
   },
   {
     name: "Buenos Llaveros",
     description: "Llaveros artesanales de mate",
     image: "/images/etiquetas/buenos-llaveros.png",
-    // tall rectangular label → portrait container
-    imgClass: "relative h-100 w-100",
+    // tall rectangular label → square aspect keeps it contained
+    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain",
   },
   {
     name: "Buenos Filtros",
     description: "Filtros premium para bombilla",
     image: "/images/etiquetas/buenos-filtros.png",
-    // tall rectangular label → portrait container
-    imgClass: "relative h-100 w-100",
+    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain",
   },
   {
     name: "Buenos Bocados",
     description: "Producto artesanal - Frutos secos",
     image: "/images/etiquetas/buenos-bocados.png",
-    imgClass: "relative h-100 w-150",
+    imgClass: "relative w-full max-w-[18rem] mx-auto aspect-square",
     imgStyle: "object-contain",
   },
 ]
