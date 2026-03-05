@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
 import { SectionDivider } from "@/components/section-divider"
@@ -9,6 +10,18 @@ import { HerbalSection } from "@/components/herbal-section"
 import { EtiquetasSection } from "@/components/etiquetas-section"
 import { AboutMe } from "@/components/about-me"
 import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+  title: "Margot Castillo — Diseño Gráfico & Branding",
+  description:
+    "Portfolio de Margot Castillo, diseñadora gráfica especializada en branding, packaging y etiquetas. Proyectos como Buenos Mates, Buenos Alfajores y más.",
+  openGraph: {
+    title: "Margot Castillo — Diseño Gráfico & Branding",
+    description:
+      "Portfolio de Margot Castillo, diseñadora gráfica especializada en branding, packaging y etiquetas.",
+    type: "website",
+  },
+}
 
 export default function PortfolioPage() {
   return (

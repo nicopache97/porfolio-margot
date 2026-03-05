@@ -62,10 +62,10 @@ export function MateShape({ children, className = "", active = false, color }: M
             style={active && color ? { color } : undefined}
           >
             {HERBAL_DESIGN.filete.map((d, i) => (
-              <path key={`f-${i}`} d={d} stroke="currentColor" strokeWidth="2" fill="currentColor" />
+              <path key={`filete-${i}-${d.slice(0, 12)}`} d={d} stroke="currentColor" strokeWidth="2" fill="currentColor" />
             ))}
             {HERBAL_DESIGN.lines.map((line, i) => (
-              <line key={`l-${i}`} {...line} stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              <line key={`line-${line.x1}-${line.y1}`} {...line} stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
             ))}
           </g>
         </g>

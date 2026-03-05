@@ -35,6 +35,7 @@ export function Navbar() {
             src="/icon.png"
             alt="Margot Castillo Logo"
             fill
+            sizes="40px"
             className="object-contain"
           />
         </a>

@@ -80,8 +80,17 @@ export function HerbalCarousel({ herbs, onSelectHerb }: HerbalCarouselProps) {
                                     }`}
                             >
                                 <div
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label={`Ver detalles de ${herb.name}`}
                                     className="group relative cursor-pointer [perspective:1000px]"
                                     onClick={() => toggleFlip(i)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ") {
+                                            e.preventDefault()
+                                            toggleFlip(i)
+                                        }
+                                    }}
                                 >
                                     <div
                                         className={`relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? "[transform:rotateY(180deg)]" : ""
@@ -116,6 +125,7 @@ export function HerbalCarousel({ herbs, onSelectHerb }: HerbalCarouselProps) {
                                                 src={herb.etiquetaSrc}
                                                 alt={`${herb.name} detalle`}
                                                 fill
+                                                sizes="(max-width: 640px) 50vw, 33vw"
                                                 className="object-contain"
                                             />
                                         </div>

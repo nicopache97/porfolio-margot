@@ -49,6 +49,7 @@ export function BrandStory() {
                 alt="Buenos Mates Logo"
                 fill
                 className="object-contain object-left"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
             </div>

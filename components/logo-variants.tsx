@@ -41,7 +41,7 @@ export function LogoVariants() {
         <div className="flex flex-wrap justify-center gap-10 md:gap-16">
           {variants.map((v, i) => (
             <div
-              key={i}
+              key={v.name}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
               className={`group relative flex flex-col items-center gap-4 transition-all duration-700 ${visible ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-12 scale-75"
@@ -61,6 +61,7 @@ export function LogoVariants() {
                     src={v.src}
                     alt={v.name}
                     fill
+                    sizes="(max-width: 768px) 96px, (max-width: 1024px) 128px, 144px"
                     className="object-contain"
                   />
                 </div>

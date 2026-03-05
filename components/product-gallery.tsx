@@ -96,7 +96,7 @@ export function ProductGallery() {
       <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
         {products.map((product, i) => (
           <ProductCard
-            key={i}
+            key={product.title}
             image={product.image}
             alt={product.alt}
             title={product.title}
