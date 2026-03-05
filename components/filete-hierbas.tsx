@@ -26,7 +26,7 @@ export function FileteHierbas({ className = "", width = 200, herbColor }: Filete
                 transform="translate(-25.91 -451.97)"
                 style={{
                     fill: herbColor || "transparent",
-                    fillOpacity: isHovered ? 1 : 0,
+                    fillOpacity: isHovered ? 1 : 1,
                     stroke: strokeColor,
                     strokeWidth: 2,
                     transition: "fill-opacity 1s ease, fill 0.5s ease",
