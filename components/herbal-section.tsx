@@ -1,9 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import { MateShape } from "./mate-shape"
 import { FileteHierbas } from "./filete-hierbas"
+import { HerbalCarousel } from "./herbal-carousel"
 
 const herbs = [
   {
@@ -41,8 +40,6 @@ const herbs = [
 export function HerbalSection() {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,50 +72,8 @@ export function HerbalSection() {
           <FileteHierbas width={350} className="mt-2" />
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 lg:grid-cols-3">
-          {herbs.map((herb, i) => (
-            <div
-              key={herb.name}
-              className="group relative transition-all duration-500 [perspective:1000px] cursor-pointer"
-              style={{ transitionDelay: `${i * 80}ms` }}
-              onClick={() => setSelectedIndex(selectedIndex === i ? null : i)}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div
-                className={`relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d] ${selectedIndex === i ? "[transform:rotateY(180deg)]" : ""
-                  }`}
-              >
-                {/* Front */}
-                <div className="absolute inset-0 [backface-visibility:hidden]">
-                  <MateShape
-                    className="h-full w-full"
-                    active={selectedIndex === i || hoveredIndex === i}
-                    color={herb.color}
-                  >
-                    <div className="flex flex-col items-center">
-                      <h4 className="mb-1 font-serif text-lg font-bold text-primary md:text-xl">
-                        {herb.name}
-                      </h4>
-                      <span className="text-[10px] tracking-wider text-muted-foreground uppercase mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        VER DETALLES
-                      </span>
-                    </div>
-                  </MateShape>
-                </div>
-
-                {/* Back */}
-                <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl overflow-hidden">
-                  <Image
-                    src={herb.etiquetaSrc}
-                    alt={`${herb.name} detalle`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="mt-8">
+          <HerbalCarousel herbs={herbs} />
         </div>
       </div>
     </section>
