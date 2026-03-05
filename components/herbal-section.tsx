@@ -40,6 +40,7 @@ const herbs = [
 export function HerbalSection() {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -69,11 +70,11 @@ export function HerbalSection() {
           <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
             {"Calmate y tomate unos Buenos Mates. Cada hierba seleccionada con beneficios únicos para tu bienestar."}
           </p>
-          <FileteHierbas width={350} className="mt-2" />
+          <FileteHierbas width={350} className="mt-2" herbColor={herbs[selectedIndex].color} />
         </div>
 
         <div className="mt-8">
-          <HerbalCarousel herbs={herbs} />
+          <HerbalCarousel herbs={herbs} onSelectHerb={setSelectedIndex} />
         </div>
       </div>
     </section>

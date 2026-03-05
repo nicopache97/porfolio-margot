@@ -20,9 +20,10 @@ interface Herb {
 
 interface HerbalCarouselProps {
     herbs: Herb[]
+    onSelectHerb?: (index: number) => void
 }
 
-export function HerbalCarousel({ herbs }: HerbalCarouselProps) {
+export function HerbalCarousel({ herbs, onSelectHerb }: HerbalCarouselProps) {
     const [api, setApi] = React.useState<CarouselApi>()
     const [centerIndex, setCenterIndex] = React.useState(0)
     const [flipped, setFlipped] = React.useState<boolean[]>(() =>
@@ -33,7 +34,9 @@ export function HerbalCarousel({ herbs }: HerbalCarouselProps) {
         if (!api) return
 
         const onSelect = () => {
-            setCenterIndex(api.selectedScrollSnap())
+            const idx = api.selectedScrollSnap()
+            setCenterIndex(idx)
+            onSelectHerb?.(idx)
         }
 
         onSelect()
@@ -41,7 +44,7 @@ export function HerbalCarousel({ herbs }: HerbalCarouselProps) {
         return () => {
             api.off("select", onSelect)
         }
-    }, [api])
+    }, [api, onSelectHerb])
 
     const toggleFlip = (index: number) => {
         setFlipped((prev) => {
@@ -71,9 +74,9 @@ export function HerbalCarousel({ herbs }: HerbalCarouselProps) {
                             className="basis-1/2 pl-2 sm:basis-1/3 md:pl-4 lg:basis-1/3"
                         >
                             <div
-                                className={`transition-all duration-500 ease-out ${isCenter
-                                        ? "scale-100 opacity-100"
-                                        : "scale-[0.85] opacity-60"
+                                className={`transition-all duration-700 ease-in-out ${isCenter
+                                    ? "scale-[1.4] opacity-100 z-10"
+                                    : "scale-[0.8] opacity-50"
                                     }`}
                             >
                                 <div
@@ -97,8 +100,8 @@ export function HerbalCarousel({ herbs }: HerbalCarouselProps) {
                                                     </h4>
                                                     <span
                                                         className={`text-[10px] tracking-wider uppercase mt-2 transition-opacity duration-300 ${isCenter
-                                                                ? "text-muted-foreground opacity-100"
-                                                                : "opacity-0"
+                                                            ? "text-muted-foreground opacity-100"
+                                                            : "opacity-0"
                                                             }`}
                                                     >
                                                         VER DETALLES
