@@ -95,7 +95,7 @@ export function HerbalCarousel({ herbs, onSelectHerb }: HerbalCarouselProps) {
                                                 color={herb.color}
                                             >
                                                 <div className="flex flex-col items-center">
-                                                    <h4 className="mb-1 font-serif text-lg font-bold text-primary md:text-xl">
+                                                    <h4 className="mb-1 text-center font-serif text-lg font-bold text-primary md:text-xl">
                                                         {herb.name}
                                                     </h4>
                                                     <span
